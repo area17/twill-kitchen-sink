@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use A17\Twill\Facades\TwillNavigation;
+use A17\Twill\View\Components\Navigation\NavigationLink;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,9 +13,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        //
     }
 
     /**
@@ -21,8 +22,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        TwillNavigation::addLink(
+            NavigationLink::make()->forModule('brands')
+        );
     }
 }
